@@ -1,0 +1,111 @@
+:root {
+    --dark-cyan: hsl(185, 75%, 39%);
+    --Very-dark-desaturated: hsl(229, 23%, 23%);
+    --dark--grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+
+/* respeta los espaciados de la web */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* es igual a = 10 px*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: var(--dark-cyan);
+    /* agregamos imagenes al background*/
+    background-image: url('../images/bg-pattern-top.svg'), url('../images/bg-pattern-bottom.svg');
+    /* para que no se repitan las imagenes */
+    background-repeat: no-repeat, no-repeat;
+    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
+}
+
+
+
+.flex {
+   display: flex; 
+   justify-content: center;
+   align-items: center;
+   height: 100vh; /* se alinee a movil porque toma la medida del cotenedor */
+}
+
+
+.card {
+    background-color: white;
+    width: 326px; /* ancho de la card */
+    border-radius: 16px; /* border de la card */
+    overflow: hidden; /* toda la card con el fondo de arriba se pone con bordes redondeados*/
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7)  ; /*eje de x, eje de y ,degradacion,  color*/
+
+    /* imagen de fondo */
+    /* accedemos a la clase card con " & " y luego a header */
+    &-header {
+        width: 100%;
+        display: block; /* elemento en bloque quita el espacio fantasma*/
+    }
+    
+    /* card - body*/
+    &-body{
+       display: flex; /* se posiciona uno al lado de otro */
+       flex-direction: column;
+       align-items: center;
+       border-bottom: 1px solid rgba(153, 153, 153, 0.383);
+
+       &-img {
+           border: 5px solid white; /* border */
+           border-radius: 100%;
+           margin-top: calc(-48px - 5px); /* 96px / 2  = 48 luego lo calculamos con el border */
+           background-color: white;
+       }
+       
+       /* card-body-title*/
+       &-title {
+           margin-top: 2rem;
+            font-size: 1.8rem;
+
+            span {
+                color: var(--dark-gray);
+                font-weight: 400; /* mas delgado el span */
+                margin-left: 0.5rem; /* separamos el span del h1 */
+            }
+       }
+       
+       /* card-body-text */
+       &-text {
+             color: var(--dark-gray);
+             font-size: 1.6rem; /* 16px */
+             margin-top: 0;
+             margin-bottom: 2rem; 
+       }
+    }
+   
+    /* card-footer */
+    &-footer {
+        display: flex;
+        justify-content: space-around;
+        
+        &-social {
+            text-align: center; /* centramos los textos */
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+
+            p {
+                /* dar un espacio a las letras */
+                letter-spacing: 1px;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
